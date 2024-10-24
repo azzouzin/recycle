@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:getx_skeleton/app/routes/routes.dart';
 
 import 'app/data/local/shared_pref.dart';
 import 'app/routes/app_routes.dart';
@@ -48,7 +49,7 @@ Future<void> main() async {
               ),
             );
           },
-          initialRoute: AppPages.routes[0].name,
+          initialRoute: Routes.ONBOARDING,
           // first screen to show when app is running
           getPages: AppPages.routes,
           // app screens

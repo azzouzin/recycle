@@ -3,10 +3,10 @@ import 'package:flutter/material.dart';
 // TODO add your light theme colors palette
 class LightThemeColors {
   // PRIMARY
-  static const Color primaryColor = Color(0xFF42A7DE);
+  static const Color primaryColor = Color(0xFF2DCC70);
 
   // SECONDARY COLOR
-  static const Color accentColor = Color(0xFFD9EDE1);
+  static const Color accentColor = Color(0xFF6CC51D);
 
   //APPBAR
   static const Color appBarColor = primaryColor;

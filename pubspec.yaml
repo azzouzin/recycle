@@ -3,7 +3,7 @@ version: 1.0.0+1
 publish_to: none
 description: start your project in the fastest way
 environment:
-  sdk: '>=3.0.1 <4.0.0'
+  sdk: ">=3.0.1 <4.0.0"
 
 dependencies:
   cupertino_icons: ^1.0.5
@@ -25,11 +25,13 @@ dependencies:
   flutter_launcher_icons: # change app icon
   change_app_package_name: # change package name
   rename_app: 1.0.0 # rename app
-
-  flutter_svg:  # display svg vectors
+  liquid_swipe: ^3.1.0 # swipe to next page
+  flutter_svg: # display svg vectors
 
   flutter:
     sdk: flutter
+  onboarding: ^4.0.2
+  iconsax: ^0.0.8
 
 dev_dependencies:
   mockito:
@@ -71,4 +73,3 @@ flutter:
           weight: 500
         - asset: assets/fonts/Cairo-SemiBold.ttf
           weight: 900
-
