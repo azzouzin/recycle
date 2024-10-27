@@ -78,7 +78,7 @@ class PageWidget extends StatelessWidget {
                         ),
                         32.verticalSpace,
                         CustomButton(
-                          child: Text("data"),
+                          child: Text("Suivent".tr),
                           width: Get.width * 0.8,
                           borderRadius: 16.r,
                           high: Get.height * 0.07,

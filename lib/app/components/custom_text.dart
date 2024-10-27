@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:getx_skeleton/config/theme/light_theme_colors.dart';
 
 class CustomText extends StatelessWidget {
   final String txt;
@@ -20,7 +21,7 @@ class CustomText extends StatelessWidget {
     this.height = 1,
     this.maxLine = 1,
     this.fontSize = 16,
-    this.color,
+    this.color = LightThemeColors.primaryColor,
     this.fontWeight = FontWeight.w400,
     this.textAlign = TextAlign.start,
     this.overflow = TextOverflow.ellipsis,
