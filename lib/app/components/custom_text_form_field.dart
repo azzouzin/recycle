@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:getx_skeleton/config/theme/light_theme_colors.dart';
 import '../../../config/translations/strings_enum.dart';
 
 import 'custom_text.dart';
@@ -56,6 +57,7 @@ class CustomTextFormField extends StatelessWidget {
       inputFormatters: inputFormatters,
       style: TextStyle(
         color: Theme.of(context).textTheme.labelLarge!.color,
+        fontSize: 10.sp,
       ),
       controller: controller,
       validator: (value) {
@@ -70,6 +72,10 @@ class CustomTextFormField extends StatelessWidget {
       textAlign: textAlign ?? TextAlign.start,
       decoration: InputDecoration(
         hintText: (hintTxt ?? "").tr,
+        hintStyle: TextStyle(
+          color: LightThemeColors.accentColor,
+          fontSize: 12.sp,
+        ),
         label: CustomText(
           txt: label ?? "",
           fontSize: 14.sp,
@@ -78,15 +84,16 @@ class CustomTextFormField extends StatelessWidget {
         fillColor: fillColor ?? Theme.of(context).colorScheme.surface,
         filled: true,
         enabledBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(8.r),
+          borderRadius: BorderRadius.circular(32.r),
           borderSide: BorderSide(
-            color: Theme.of(context).colorScheme.onSurface,
+            color: LightThemeColors.primaryColor,
+            width: 0.0.w,
           ),
         ),
         focusedBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(8.r),
+          borderRadius: BorderRadius.circular(32.r),
           borderSide: BorderSide(
-            color: Theme.of(context).colorScheme.onSurface,
+            color: LightThemeColors.primaryColor,
           ),
         ),
         prefixIcon: prefixIcon,
