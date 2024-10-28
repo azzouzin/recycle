@@ -6,13 +6,14 @@ class CustomButton extends StatelessWidget {
   final double width;
   final double borderRadius;
   final VoidCallback? onPressed;
-
+  final Color? color;
   const CustomButton({
     Key? key,
     required this.child,
     required this.width,
     required this.borderRadius,
     required this.high,
+    this.color,
     this.onPressed,
   }) : super(key: key);
 
@@ -22,7 +23,7 @@ class CustomButton extends StatelessWidget {
       onTap: onPressed,
       child: ElevatedButton(
         style: ElevatedButton.styleFrom(
-          backgroundColor: Colors.white,
+          backgroundColor: color ?? Colors.white,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(borderRadius),
           ),

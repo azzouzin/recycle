@@ -26,12 +26,14 @@ dependencies:
   change_app_package_name: # change package name
   rename_app: 1.0.0 # rename app
   liquid_swipe: ^3.1.0 # swipe to next page
-  flutter_svg: # display svg vectors
+  flutter_svg: ^1.0.3 # display svg vectors
 
   flutter:
     sdk: flutter
   onboarding: ^4.0.2
   iconsax: ^0.0.8
+  maps_launcher: ^2.2.1
+  geolocator: ^13.0.1
 
 dev_dependencies:
   mockito:

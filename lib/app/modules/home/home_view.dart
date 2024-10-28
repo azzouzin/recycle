@@ -1,16 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:getx_skeleton/app/components/api_handle_ui_widget.dart';
 import 'package:getx_skeleton/app/components/api_widgets/some_thing_error.dart';
 import 'package:getx_skeleton/app/components/custom_text.dart';
 import 'package:getx_skeleton/config/theme/light_theme_colors.dart';
+import 'package:getx_skeleton/config/translations/strings_enum.dart';
 import 'package:iconsax/iconsax.dart';
 
+import '../../routes/routes.dart';
 import 'home_controller.dart';
 
 class HomeView extends GetView<HomeController> {
-  const HomeView({Key? key}) : super(key: key);
+  HomeView({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -117,18 +120,39 @@ class HomeView extends GetView<HomeController> {
                                   SliverGridDelegateWithFixedCrossAxisCount(
                                 crossAxisCount: 3,
                               ),
+                              itemCount: 5,
                               itemBuilder: (context, index) {
-                                return Container(
-                                  height: 80.h,
-                                  width: 80.w,
-                                  padding: EdgeInsets.all(8),
-                                  margin: EdgeInsets.all(8),
-                                  decoration: BoxDecoration(
-                                    color: Colors.blue,
-                                    shape: BoxShape.circle,
+                                return InkWell(
+                                  onTap: () => getFunction[index](),
+                                  child: Container(
+                                    height: 80.h,
+                                    width: 80.w,
+                                    padding: EdgeInsets.all(8),
+                                    margin: EdgeInsets.all(4),
+                                    decoration: BoxDecoration(
+                                      color: Colors.white,
+                                      borderRadius: BorderRadius.circular(8.r),
+                                      //    shape: BoxShape.circle,
+                                    ),
+                                    child: Column(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceAround,
+                                      children: [
+                                        SvgPicture.asset(
+                                            "assets/vectors/${index + 1}.svg"),
+                                        CustomText(
+                                          txt: getText[index],
+                                          fontSize: 12.sp,
+                                          color: const Color.fromARGB(
+                                            255,
+                                            151,
+                                            151,
+                                            151,
+                                          ),
+                                        )
+                                      ],
+                                    ),
                                   ),
-                                  child:
-                                      Image.asset("assets/images/person1.png"),
                                 );
                               }),
                         ),
@@ -144,4 +168,20 @@ class HomeView extends GetView<HomeController> {
       ),
     );
   }
+
+  List<Function> getFunction = [
+    () => Get.toNamed(Routes.MARCKETPLACE),
+    () => Get.toNamed(Routes.MAPS),
+    // () => Get.toNamed(Routes.RECOMPENSES),
+    // () => Get.toNamed(Routes.DEMANDE),
+    // () => Get.toNamed(Routes.POINTS),
+  ];
+
+  List<String> getText = [
+    "Marketplace",
+    "Gps",
+    "Récompenses",
+    "Demande",
+    "Points ",
+  ];
 }
