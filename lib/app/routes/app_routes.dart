@@ -29,7 +29,7 @@ class AppPages {
   
     GetPage(
       name: Routes.MARCKETPLACE,
-      page: () => const MarcketplaceView(),
+      page: () =>  MarcketplaceView(),
       binding: MarcketplaceBinding(),
     ),
    
