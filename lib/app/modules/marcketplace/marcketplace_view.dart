@@ -42,8 +42,9 @@ class MarcketplaceView extends GetView<MarcketplaceController> {
             return Column(
               children: [
                 Padding(
-                  padding:
-                      EdgeInsets.symmetric(horizontal: 16.0, vertical: 16.0),
+                  padding: EdgeInsets.symmetric(
+                    horizontal: 16.0,
+                  ),
                   child: CustomTextFormField(
                     hintTxt: 'Recherche',
                     suffixIcon: Icon(
@@ -75,11 +76,6 @@ class MarcketplaceView extends GetView<MarcketplaceController> {
                           imageUrl: 'assets/images/plastiques3.jpg',
                           adsUrl: "assets/vectors/grabModel2.svg",
                         ),
-                        // 16.horizontalSpace,
-                        // AdsItem(
-                        //   imageUrl: 'assets/images/plastiques.png',
-                        //   adsUrl: "assets/vectors/grabModel.svg",
-                        // ),
                       ],
                     ),
                   ),

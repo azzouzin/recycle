@@ -11,9 +11,17 @@ import 'routes.dart';
 import '../modules/maps/maps_binding.dart';
 import '../modules/maps/maps_view.dart';
 import 'routes.dart';
+import '../modules/chat/chat_binding.dart';
+import '../modules/chat/chat_view.dart';
+import 'routes.dart';
+import '../modules/recompense/recompense_binding.dart';
+import '../modules/recompense/recompense_view.dart';
+import 'routes.dart';
 
 class AppPages {
   static final routes = [
+    
+    
     
     
     GetPage(
@@ -37,6 +45,18 @@ class AppPages {
       name: Routes.MAPS,
       page: () => const MapsView(),
       binding: MapsBinding(),
+    ),
+   
+    GetPage(
+      name: Routes.CHAT,
+      page: () => const ChatView(),
+      binding: ChatBinding(),
+    ),
+   
+    GetPage(
+      name: Routes.RECOMPENSE,
+      page: () => const RecompenseView(),
+      binding: RecompenseBinding(),
     ),
    ];
 }
