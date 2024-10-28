@@ -172,7 +172,7 @@ class HomeView extends GetView<HomeController> {
   List<Function> getFunction = [
     () => Get.toNamed(Routes.MARCKETPLACE),
     () => Get.toNamed(Routes.MAPS),
-    // () => Get.toNamed(Routes.RECOMPENSES),
+   () => Get.toNamed(Routes.RECOMPENSE),
     // () => Get.toNamed(Routes.DEMANDE),
     // () => Get.toNamed(Routes.POINTS),
   ];
