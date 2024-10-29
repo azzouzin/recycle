@@ -41,7 +41,6 @@ class MarcketplaceView extends GetView<MarcketplaceController> {
           child: GetBuilder<MarcketplaceController>(builder: (_) {
             return Column(
               children: [
-                16.verticalSpace,
                 Padding(
                   padding: EdgeInsets.symmetric(
                     horizontal: 16.0,
