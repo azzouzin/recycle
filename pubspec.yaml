@@ -41,6 +41,8 @@ dependencies:
   open_filex: ^4.5.0
   image_picker: ^1.1.2
   rive: ^0.13.15
+  radio_group_v2: ^3.2.1
+  dotted_border: ^2.1.0
 
 dev_dependencies:
   mockito:

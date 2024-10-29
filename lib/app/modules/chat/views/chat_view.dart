@@ -6,7 +6,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart' show rootBundle;
 import 'package:flutter_chat_types/flutter_chat_types.dart' as types;
 import 'package:flutter_chat_ui/flutter_chat_ui.dart';
+import 'package:get/get.dart';
+import 'package:getx_skeleton/app/modules/chat/views/demeand_service_view.dart';
 import 'package:http/http.dart' as http;
+import 'package:iconsax/iconsax.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:intl/date_symbol_data_local.dart';
 import 'package:mime/mime.dart';
@@ -14,8 +17,8 @@ import 'package:open_filex/open_filex.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:uuid/uuid.dart';
 
-import '../../../config/theme/light_theme_colors.dart';
-import '../../components/custom_text.dart';
+import '../../../../config/theme/light_theme_colors.dart';
+import '../../../components/custom_text.dart';
 
 class ChatView extends StatefulWidget {
   const ChatView({super.key});
@@ -209,6 +212,18 @@ class _ChatViewState extends State<ChatView> {
             color: Colors.white,
             fontWeight: FontWeight.w700,
           ),
+          actions: [
+            Padding(
+              padding: const EdgeInsets.only(right: 8.0),
+              child: IconButton(
+                onPressed: () => Get.to(DemeandServiceView()),
+                icon: Icon(
+                  Icons.recycling,
+                  color: Colors.white,
+                ),
+              ),
+            ),
+          ],
         ),
         body: Chat(
           messages: _messages,

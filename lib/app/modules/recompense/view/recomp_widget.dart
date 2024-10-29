@@ -54,59 +54,61 @@ class RecompWidget extends StatelessWidget {
                   color: Colors.grey,
                 ),
                 16.verticalSpace,
-                Row(children: [
-                  Icon(
-                    Iconsax.dollar_circle,
-                    color: LightThemeColors.primaryColor,
-                  ),
-                  CustomText(
-                    txt: points,
-                    fontSize: 14.sp,
-                    fontWeight: FontWeight.bold,
-                  ),
-                  // 16.horizontalSpace,
-                  Spacer(),
-                  CustomButton(
-                    color: LightThemeColors.primaryColor,
-                    child: CustomText(
-                      txt: "Echanger",
+                Row(
+                  children: [
+                    Icon(
+                      Iconsax.dollar_circle,
+                      color: LightThemeColors.primaryColor,
+                    ),
+                    CustomText(
+                      txt: points,
                       fontSize: 14.sp,
                       fontWeight: FontWeight.bold,
-                      color: Colors.white,
                     ),
-                    onPressed: () {
-                      showDialog(
-                          context: context,
-                          builder: (context) {
-                            return AlertDialog(
-                              backgroundColor:
-                                  const Color.fromARGB(255, 56, 56, 56),
-                              content: Column(
-                                mainAxisSize: MainAxisSize.min,
-                                children: [
-                                  SizedBox(
-                                    height: 200.h,
-                                    width: 200.w,
-                                    child: rive.RiveAnimation.asset(
-                                      'assets/vectors/done.riv',
+                    // 16.horizontalSpace,
+                    Spacer(),
+                    CustomButton(
+                      color: LightThemeColors.primaryColor,
+                      onPressed: () {
+                        showDialog(
+                            context: context,
+                            builder: (context) {
+                              return AlertDialog(
+                                backgroundColor:
+                                    const Color.fromARGB(255, 56, 56, 56),
+                                content: Column(
+                                  mainAxisSize: MainAxisSize.min,
+                                  children: [
+                                    SizedBox(
+                                      height: 200.h,
+                                      width: 200.w,
+                                      child: rive.RiveAnimation.asset(
+                                        'assets/vectors/done.riv',
+                                      ),
                                     ),
-                                  ),
-                                  16.verticalSpace,
-                                  CustomText(
-                                    txt: "Echange effectue avec succes",
-                                    fontSize: 14.sp,
-                                    fontWeight: FontWeight.bold,
-                                  ),
-                                ],
-                              ),
-                            );
-                          });
-                    },
-                    width: 100.w,
-                    high: 40.h,
-                    borderRadius: 8.r,
-                  ),
-                ])
+                                    16.verticalSpace,
+                                    CustomText(
+                                      txt: "Echange effectue avec succes",
+                                      fontSize: 14.sp,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ],
+                                ),
+                              );
+                            });
+                      },
+                      width: 100.w,
+                      high: 40.h,
+                      borderRadius: 8.r,
+                      child: CustomText(
+                        txt: "Echanger",
+                        fontSize: 14.sp,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.white,
+                      ),
+                    ),
+                  ],
+                )
               ],
             ),
           ),

@@ -12,7 +12,7 @@ import '../modules/maps/maps_binding.dart';
 import '../modules/maps/maps_view.dart';
 import 'routes.dart';
 import '../modules/chat/chat_binding.dart';
-import '../modules/chat/chat_view.dart';
+import '../modules/chat/views/chat_view.dart';
 import 'routes.dart';
 import '../modules/recompense/recompense_binding.dart';
 import '../modules/recompense/recompense_view.dart';

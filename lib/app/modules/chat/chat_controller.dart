@@ -1,4 +1,7 @@
+import 'dart:io';
+
 import 'package:get/get.dart';
+import 'package:image_picker/image_picker.dart';
 
 import '../../../../utils/constants.dart';
 import '../../data/remote/api_call_status.dart';
@@ -10,6 +13,24 @@ class ChatController extends GetxController {
 
   // api call status
   ApiCallStatus apiCallStatus = ApiCallStatus.holding;
+  bool isAprroved = false;
+  File? file;
+  void uploadFile() async {
+    file = await getFile();
+
+    update();
+  }
+
+  void approve() {
+    isAprroved = !isAprroved;
+    update();
+  }
+
+  Future<File?> getFile() async {
+    ImagePicker picker = ImagePicker();
+    XFile? image = await picker.pickImage(source: ImageSource.gallery);
+    return image == null ? null : File(image.path);
+  }
 
   // getting data from api
   getData() async {
