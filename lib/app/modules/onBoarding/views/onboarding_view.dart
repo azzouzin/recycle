@@ -19,6 +19,7 @@ class OnBoardingView extends StatefulWidget {
 
 class _OnBoardingViewState extends State<OnBoardingView> {
   late Material materialButton;
+  LiquidController liquidController = LiquidController();
 
   late List<Widget> pages;
   @override
@@ -77,14 +78,19 @@ class _OnBoardingViewState extends State<OnBoardingView> {
     }
   }
 
-  LiquidController liquidController = LiquidController();
-
+  bool isEnded = false;
   @override
   Widget build(BuildContext context) {
     //  redirectUser();
     return Scaffold(
       body: LiquidSwipe(
         pages: pages,
+        onPageChangeCallback: (activePageIndex) {
+          if (activePageIndex == 0 && isEnded) {
+            Get.toNamed(Routes.HOME);
+          }
+          activePageIndex == 3 ? isEnded = true : isEnded = false;
+        },
         liquidController: liquidController,
         fullTransitionValue: 600, // The speed of the swipe transition
         enableLoop: true, // Allows looping the swipe

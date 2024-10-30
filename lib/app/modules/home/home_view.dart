@@ -172,8 +172,8 @@ class HomeView extends GetView<HomeController> {
   List<Function> getFunction = [
     () => Get.toNamed(Routes.MARCKETPLACE),
     () => Get.toNamed(Routes.MAPS),
-   () => Get.toNamed(Routes.RECOMPENSE),
-    // () => Get.toNamed(Routes.DEMANDE),
+    () => Get.toNamed(Routes.RECOMPENSE),
+    () => Get.toNamed(Routes.MATERIALS),
     // () => Get.toNamed(Routes.POINTS),
   ];
 
@@ -181,7 +181,7 @@ class HomeView extends GetView<HomeController> {
     "Marketplace",
     "Gps",
     "Récompenses",
-    "Demande",
+    "Matériaux recyclés ",
     "Points ",
   ];
 }
