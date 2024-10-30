@@ -6,5 +6,6 @@ static const MAPS = "/maps";
 static const CHAT = "/chat";
 static const RECOMPENSE = "/recompense";
 static const MATERIALS = "/materials";
-  static const PRODUCTDETAILS = "/productdetails";
+static const PRODUCTDETAILS = "/productdetails";
+  static const HISTORY = "/history";
 }

@@ -1,4 +1,4 @@
-import 'package:get/get.dart';
+    import 'package:get/get.dart';
 import '../modules/home/home_binding.dart';
 import '../modules/home/home_view.dart';
 import '../modules/onBoarding/views/onboarding_view.dart';
@@ -23,9 +23,13 @@ import 'routes.dart';
 import '../modules/productdetails/productdetails_binding.dart';
 import '../modules/productdetails/productdetails_view.dart';
 import 'routes.dart';
+import '../modules/history/history_binding.dart';
+import '../modules/history/history_view.dart';
+import 'routes.dart';
 
 class AppPages {
   static final routes = [
+    
     GetPage(
       name: Routes.HOME,
       page: () => HomeView(),
@@ -66,5 +70,11 @@ class AppPages {
       page: () => ProductdetailsView(),
       binding: ProductdetailsBinding(),
     ),
-  ];
+  
+    GetPage(
+      name: Routes.HISTORY,
+      page: () => const HistoryView(),
+      binding: HistoryBinding(),
+    ),
+   ];
 }

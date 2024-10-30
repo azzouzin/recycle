@@ -174,14 +174,14 @@ class HomeView extends GetView<HomeController> {
     () => Get.toNamed(Routes.MAPS),
     () => Get.toNamed(Routes.RECOMPENSE),
     () => Get.toNamed(Routes.MATERIALS),
-    // () => Get.toNamed(Routes.POINTS),
+    () => Get.toNamed(Routes.HISTORY),
   ];
 
   List<String> getText = [
     "Marketplace",
     "Gps",
     "Récompenses",
-    "Matériaux recyclés ",
-    "Points ",
+    "Matériaux \n recyclés ",
+    "Commandes",
   ];
 }

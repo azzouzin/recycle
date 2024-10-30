@@ -24,7 +24,6 @@ dependencies:
   faker: ^2.1.0 # generate random data
   flutter_launcher_icons: # change app icon
   change_app_package_name: # change package name
-  rename_app: 1.0.0 # rename app
   liquid_swipe: ^3.1.0 # swipe to next page
   flutter_svg: ^1.0.3 # display svg vectors
 
@@ -43,6 +42,9 @@ dependencies:
   rive: ^0.13.15
   radio_group_v2: ^3.2.1
   dotted_border: ^2.1.0
+  easy_stepper: ^0.8.5+1
+  flutter_to_pdf: ^0.2.2
+  printing: ^5.13.4
 
 dev_dependencies:
   mockito:

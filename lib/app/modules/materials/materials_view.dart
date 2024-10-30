@@ -107,7 +107,7 @@ class MaterialsView extends GetView<MaterialsController> {
               child: GridView.builder(
                 gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                     crossAxisCount: 2),
-                itemCount: 20,
+                itemCount: 10,
                 itemBuilder: (context, index) {
                   final name = materials[fk.random.integer(5)];
                   final type = "plastic";
@@ -115,67 +115,64 @@ class MaterialsView extends GetView<MaterialsController> {
                   final description =
                       "Le plastique recyclé est un plastique transformé à partir de produits plastiques usagés ou jetés. Il permet de réduire les déchets, de préserver les ressources et de minimiser l'impact environnemental en donnant une nouvelle vie aux matériaux. Couramment utilisé dans l'emballage, le mobilier et les textiles, le plastique recyclé contribue à une économie circulaire en réutilisant des matériaux existants.";
                   final image = fk.Faker().image.image(random: true);
-                  return Column(children: [
-                    Container(
-                      height: 200.h,
-                      width: 150.w,
-                      padding: EdgeInsets.all(8),
-                      margin: EdgeInsets.all(4),
-                      decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.circular(16.r),
-                        //   shape: BoxShape.circle,
-                      ),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          SizedBox(
-                            height: 120.h,
-                            width: 150.w,
-                            child: ClipRRect(
-                              borderRadius: BorderRadius.circular(8.r),
-                              child: Image.network(
-                                image,
-                                fit: BoxFit.cover,
-                              ),
+                  return Container(
+                    height: 400.h,
+                    width: 150.w,
+                    padding: EdgeInsets.all(8),
+                    margin: EdgeInsets.all(4),
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(16.r),
+                      //   shape: BoxShape.circle,
+                    ),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        SizedBox(
+                          height: 100.h,
+                          width: 150.w,
+                          child: ClipRRect(
+                            borderRadius: BorderRadius.circular(8.r),
+                            child: Image.network(
+                              image,
+                              fit: BoxFit.cover,
                             ),
                           ),
-                          16.verticalSpace,
-                          CustomText(
-                            txt: name,
-                            color: Colors.black,
-                            fontSize: 12.sp,
-                          ),
-                          Row(
-                            children: [
-                              CustomText(
-                                txt: "$price DZD",
-                                color: Colors.black,
-                                fontSize: 12.sp,
+                        ),
+                        16.verticalSpace,
+                        CustomText(
+                          txt: name,
+                          color: Colors.black,
+                          fontSize: 12.sp,
+                        ),
+                        Row(
+                          children: [
+                            CustomText(
+                              txt: "$price DZD",
+                              color: Colors.black,
+                              fontSize: 12.sp,
+                            ),
+                            Spacer(),
+                            InkWell(
+                              onTap: () {
+                                Get.toNamed(Routes.PRODUCTDETAILS, arguments: {
+                                  "name": name,
+                                  "type": type,
+                                  "price": price,
+                                  "description": description,
+                                  "image": image,
+                                });
+                              },
+                              child: Icon(
+                                Icons.add_circle,
+                                color: LightThemeColors.primaryColor,
                               ),
-                              Spacer(),
-                              InkWell(
-                                onTap: () {
-                                  Get.toNamed(Routes.PRODUCTDETAILS,
-                                      arguments: {
-                                        "name": name,
-                                        "type": type,
-                                        "price": price,
-                                        "description": description,
-                                        "image": image,
-                                      });
-                                },
-                                child: Icon(
-                                  Icons.add_circle,
-                                  color: LightThemeColors.primaryColor,
-                                ),
-                              ),
-                            ],
-                          ),
-                        ],
-                      ),
-                    )
-                  ]);
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
+                  );
                 },
               ),
             )
