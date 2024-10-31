@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_chat_ui/flutter_chat_ui.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
@@ -56,14 +57,14 @@ class HomeView extends GetView<HomeController> {
                             Container(
                               height: 60.h,
                               width: 60.w,
+                              padding: EdgeInsets.all(4.sp),
                               decoration: BoxDecoration(
-                                color: Colors.blue,
+                                color: LightThemeColors.primaryColor,
                                 shape: BoxShape.circle,
                               ),
-                              child: CircleAvatar(
-                                child:
-                                    Image.asset("assets/images/persone1.png"),
-                              ),
+                              child: ClipOval(
+                                  child: Image.asset(
+                                      "assets/images/appstore.png")),
                             ),
                             16.horizontalSpace,
                             Column(
@@ -76,7 +77,7 @@ class HomeView extends GetView<HomeController> {
                                   fontWeight: FontWeight.w800,
                                 ),
                                 CustomText(
-                                  txt: "Bienvenue a l'application",
+                                  txt: "Bienvenue a ECODECH-DZ",
                                   fontSize: 14.sp,
                                   fontWeight: FontWeight.normal,
                                 ),

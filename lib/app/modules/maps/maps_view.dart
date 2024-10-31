@@ -40,10 +40,12 @@ class MapsView extends GetView<MapsController> {
                 padding: const EdgeInsets.all(8.0),
                 child: CustomButton(
                   onPressed: () async {
-                    final Position position =
+                    final Position? position =
                         await controller.getCurrentLocation();
-                    MapsLauncher.launchCoordinates(
-                        position.latitude, position.longitude);
+                    position == null
+                        ? null
+                        : MapsLauncher.launchCoordinates(
+                            position.latitude, position.longitude);
                   },
                   width: Get.width * 0.8,
                   borderRadius: 16.r,

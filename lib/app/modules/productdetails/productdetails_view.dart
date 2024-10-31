@@ -27,8 +27,12 @@ class ProductdetailsView extends GetView<ProductdetailsController> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Image.network(
-                  image,
+                SizedBox(
+                  height: 300.h,
+                  child: Image.asset(
+                    image,
+                    fit: BoxFit.fill,
+                  ),
                 ),
                 Container(
                   color: Colors.white,
@@ -99,15 +103,31 @@ class ProductdetailsView extends GetView<ProductdetailsController> {
                             Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                ProductRatingItem(),
-                                ProductRatingItem(),
+                                ProductRatingItem(
+                                  title: "Type",
+                                  description: type,
+                                  icon: "assets/images/icon1.png",
+                                ),
+                                ProductRatingItem(
+                                  title: "Satisfaisant",
+                                  description: "100 %",
+                                  icon: "assets/images/icon2.png",
+                                ),
                               ],
                             ),
                             Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                ProductRatingItem(),
-                                ProductRatingItem(),
+                                ProductRatingItem(
+                                  title: "Recyclé",
+                                  description: "90 %",
+                                  icon: "assets/images/icon3.png",
+                                ),
+                                ProductRatingItem(
+                                  title: "ٌRating",
+                                  description: "100 %",
+                                  icon: "assets/images/icon4.png",
+                                ),
                               ],
                             )
                           ],

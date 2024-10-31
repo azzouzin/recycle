@@ -1,16 +1,21 @@
 import 'package:geolocator/geolocator.dart';
 import 'package:get/get.dart';
+import 'package:getx_skeleton/app/components/custom_snackbar.dart';
 
 class MapsController extends GetxController {
-  Future<Position> getCurrentLocation() async {
+  Future<Position?> getCurrentLocation() async {
     bool serviceEnabled;
     LocationPermission permission;
 
     // Check if location services are enabled
     serviceEnabled = await Geolocator.isLocationServiceEnabled();
     if (!serviceEnabled) {
+      CustomSnackBar.showCustomErrorSnackBar(
+        title: 'Service de location non activé',
+        message: 'Activez la localisation',
+      );
       // Location services are not enabled, don't continue
-      return Future.error('Location services are disabled.');
+      return null;
     }
 
     // Check for location permissions

@@ -19,6 +19,14 @@ class MaterialsView extends GetView<MaterialsController> {
     "Glass",
     "Electronic",
   ];
+  List<String> images = [
+    "assets/images/m1.jpg",
+    "assets/images/m2.jpg",
+    "assets/images/m3.jpg",
+    "assets/images/m4.jpg",
+    "assets/images/m5.jpg",
+    "assets/images/m6.jpg",
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -67,38 +75,32 @@ class MaterialsView extends GetView<MaterialsController> {
                 itemCount: 5,
                 scrollDirection: Axis.horizontal,
                 itemBuilder: (context, index) {
-                  return InkWell(
-                    //  onTap: () => getFunction[index](),
-                    child: Column(
-                      children: [
-                        Container(
-                          height: 70.h,
-                          width: 70.w,
-                          padding: EdgeInsets.all(16),
-                          margin: EdgeInsets.all(4),
-                          decoration: BoxDecoration(
-                            color: Colors.white,
-                            //  borderRadius: BorderRadius.circular(8.r),
-                            shape: BoxShape.circle,
-                          ),
-                          child: SizedBox(
-                            height: 50.h,
-                            width: 50.w,
-                            child: CircleAvatar(
-                              //borderRadius: BorderRadius.circular(300.r),
-                              child: Image.asset(
-                                "assets/images/m${index + 1}.jpg",
-                              ),
-                            ),
+                  return Column(
+                    children: [
+                      Container(
+                        height: 50.h,
+                        width: 50.w,
+                        // padding: EdgeInsets.all(16),
+                        margin: EdgeInsets.all(16),
+                        decoration: BoxDecoration(
+                          color: Colors.white,
+                          //  borderRadius: BorderRadius.circular(8.r),
+                          shape: BoxShape.circle,
+                        ),
+                        child: ClipRRect(
+                          borderRadius: BorderRadius.circular(300.r),
+                          child: Image.asset(
+                            "assets/images/m${index + 1}.jpg",
+                            fit: BoxFit.cover,
                           ),
                         ),
-                        CustomText(
-                          txt: materials[index],
-                          color: Colors.black,
-                          fontSize: 12.sp,
-                        )
-                      ],
-                    ),
+                      ),
+                      CustomText(
+                        txt: materials[index],
+                        color: Colors.black,
+                        fontSize: 12.sp,
+                      )
+                    ],
                   );
                 },
               ),
@@ -110,67 +112,79 @@ class MaterialsView extends GetView<MaterialsController> {
                 itemCount: 10,
                 itemBuilder: (context, index) {
                   final name = materials[fk.random.integer(5)];
-                  final type = "plastic";
+                  final type = materials[fk.random.integer(5)];
                   final price = fk.Faker().randomGenerator.integer(1000);
                   final description =
                       "Le plastique recyclé est un plastique transformé à partir de produits plastiques usagés ou jetés. Il permet de réduire les déchets, de préserver les ressources et de minimiser l'impact environnemental en donnant une nouvelle vie aux matériaux. Couramment utilisé dans l'emballage, le mobilier et les textiles, le plastique recyclé contribue à une économie circulaire en réutilisant des matériaux existants.";
-                  final image = fk.Faker().image.image(random: true);
-                  return Container(
-                    height: 400.h,
-                    width: 150.w,
-                    padding: EdgeInsets.all(8),
-                    margin: EdgeInsets.all(4),
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.circular(16.r),
-                      //   shape: BoxShape.circle,
-                    ),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        SizedBox(
-                          height: 100.h,
-                          width: 150.w,
-                          child: ClipRRect(
-                            borderRadius: BorderRadius.circular(8.r),
-                            child: Image.network(
-                              image,
-                              fit: BoxFit.cover,
-                            ),
-                          ),
-                        ),
-                        16.verticalSpace,
-                        CustomText(
-                          txt: name,
-                          color: Colors.black,
-                          fontSize: 12.sp,
-                        ),
-                        Row(
-                          children: [
-                            CustomText(
-                              txt: "$price DZD",
-                              color: Colors.black,
-                              fontSize: 12.sp,
-                            ),
-                            Spacer(),
-                            InkWell(
-                              onTap: () {
-                                Get.toNamed(Routes.PRODUCTDETAILS, arguments: {
-                                  "name": name,
-                                  "type": type,
-                                  "price": price,
-                                  "description": description,
-                                  "image": image,
-                                });
-                              },
-                              child: Icon(
-                                Icons.add_circle,
-                                color: LightThemeColors.primaryColor,
+                  final image = images[materials.indexOf(name)];
+                  return InkWell(
+                    onTap: () {
+                      Get.toNamed(Routes.PRODUCTDETAILS, arguments: {
+                        "name": name,
+                        "type": type,
+                        "price": price,
+                        "description": description,
+                        "image": image,
+                      });
+                    },
+                    child: Container(
+                      //height: 400.h,
+                      width: 150.w,
+                      padding: EdgeInsets.all(8),
+                      margin: EdgeInsets.all(4),
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(16.r),
+                        //   shape: BoxShape.circle,
+                      ),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          SizedBox(
+                            height: 90.h,
+                            width: 150.w,
+                            child: ClipRRect(
+                              borderRadius: BorderRadius.circular(8.r),
+                              child: Image.asset(
+                                image,
+                                fit: BoxFit.cover,
                               ),
                             ),
-                          ],
-                        ),
-                      ],
+                          ),
+                          16.verticalSpace,
+                          CustomText(
+                            txt: name,
+                            color: Colors.black,
+                            fontSize: 12.sp,
+                          ),
+                          Row(
+                            children: [
+                              CustomText(
+                                txt: "$price DZD/KG",
+                                color: Colors.black,
+                                fontSize: 12.sp,
+                              ),
+                              Spacer(),
+                              InkWell(
+                                onTap: () {
+                                  Get.toNamed(Routes.PRODUCTDETAILS,
+                                      arguments: {
+                                        "name": name,
+                                        "type": type,
+                                        "price": price,
+                                        "description": description,
+                                        "image": image,
+                                      });
+                                },
+                                child: Icon(
+                                  Icons.add_circle,
+                                  color: LightThemeColors.primaryColor,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ],
+                      ),
                     ),
                   );
                 },
